@@ -30,20 +30,13 @@ useEffect(()=>{
 
   async function handleLikeRepository(id) {
     
-    const response = await api.post(`repositories/${id}/like`);
-    const likedRepository = response.data;
-   
-    const repositorieUpdated = repositories.map(repository =>{
-      if(repository.id == id){
-       return likedRepository;
-      }else{
-        return repository;
-      }
-   
+    const response = await api.post(`repositories/${id}/like`,{
+      
     });
-    
-  
-      setRepositories(repositorieUpdated);
+    //const repositorie = response.data;
+    let novoArray = repositories.filter();
+    console.log(novoArray); // => [3, 4]
+      setRepositories([novoArray]);
   
     
   }
@@ -69,9 +62,9 @@ useEffect(()=>{
             <Text
               style={styles.likeText}
               // Remember to replace "1" below with repository ID: {`repository-likes-${repository.id}`}
-              testID={`repository-likes-${repository.id}`}
+              testID={`repository-likes-1`}
             >
-             {`${repository.likes} curtidas`}
+             {`Likes:${repository.likes}`}
             </Text>
           </View>
             
@@ -79,7 +72,7 @@ useEffect(()=>{
             style={styles.button}
             onPress={() => handleLikeRepository(repository.id)}
             // Remember to replace "1" below with repository ID: {`like-button-${repository.id}`}
-            testID={`like-button-${repository.id}`}
+            testID={`like-button-1`}
           >
             <Text style={styles.buttonText}>Curtir</Text>
           </TouchableOpacity>

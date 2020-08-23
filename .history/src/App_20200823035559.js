@@ -32,18 +32,10 @@ useEffect(()=>{
     
     const response = await api.post(`repositories/${id}/like`);
     const likedRepository = response.data;
-   
-    const repositorieUpdated = repositories.map(repository =>{
-      if(repository.id == id){
-       return likedRepository;
-      }else{
-        return repository;
-      }
-   
-    });
     
-  
-      setRepositories(repositorieUpdated);
+    const repositorieUpdated = repositories.map()
+    console.log(repositorieUpdated);
+      setRepositories([repositorieUpdated]);
   
     
   }
@@ -71,7 +63,7 @@ useEffect(()=>{
               // Remember to replace "1" below with repository ID: {`repository-likes-${repository.id}`}
               testID={`repository-likes-${repository.id}`}
             >
-             {`${repository.likes} curtidas`}
+             {`Likes:${repository.likes}`}
             </Text>
           </View>
             
